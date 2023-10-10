@@ -1,0 +1,682 @@
+body {
+    text-align: center;
+    background-color: #f5f5f5;
+}
+
+.count {
+    background-color: rgb(0, 165, 51);
+}
+
+#UserDigit {
+    transition: all 0.5s;
+}
+
+#UserDigit:hover {
+    background-color: rgb(74, 122, 211);
+}
+
+#UserDigit:active {
+    background-color: rgb(28, 74, 160);
+}
+
+#page {
+    z-index: 5;
+    padding: 0px;
+    max-width: 100vmin;
+    margin: auto;
+    border: 1px solid gray;
+    border-radius: 6px;
+    box-shadow: 1px 1px 4px rgb(121, 121, 121);
+    background-color: #e0f0ff;
+}
+
+@keyframes page {
+    0% {
+        width: 0px;
+    }
+    100% {
+        width: 555px;
+    }
+}
+
+#n_and_non {
+    margin: 2.4vmin;
+}
+
+#number,
+#number_move {
+    margin: 5px;
+    font-weight: 700;
+    font-size: 3.4vmin;
+    color: rgb(0, 0, 0);
+    padding-right: 15vmin;
+    padding-left: 15vmin;
+    padding-top: 3vmin;
+    padding-bottom: 3vmin;
+    text-decoration: none;
+    border-radius: 3px;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 -3px rgb(85, 85, 85) inset;
+    transition: 0.2s;
+    text-align: center;
+}
+
+#send {
+    position: relative;
+    color: white;
+    font-weight: bold;
+    font-size: 3.4vmin;
+    text-decoration: none;
+    text-shadow: 1px 1px 5px rgb(255, 0, 0);
+    user-select: none;
+    padding: .4em 1em;
+    outline: none;
+    background-color: rgb(0, 89, 255);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .0) 30%, rgba(255, 255, 255, .8), rgba(255, 255, 255, .0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255, 255, 255, .7) 0%, rgba(255, 255, 255, .5) 50%, rgba(0, 0, 0, 0) 50%);
+    background-repeat: no-repeat;
+    background-size: 200% 100%, auto;
+    background-position: 200% 0, 0 0;
+    box-shadow: rgba(0, 0, 0, .3) 0 2px 5px;
+    transition: all 0.5s;
+}
+
+#send:active {
+    top: 1px;
+    box-shadow: none;
+}
+
+#send:hover {
+    transition: .5s linear;
+    background-position: -200% 0, 0 0;
+    box-shadow: 1px 1px 3px 1px #55aefb;
+}
+
+#new_move {
+    font-size: 3.4vmin;
+    position: relative;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 1px 1px 5px rgb(255, 0, 0);
+    user-select: none;
+    padding: .8em 2em;
+    outline: none;
+    background-color: rgb(0, 89, 255);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .0) 30%, rgba(255, 255, 255, .8), rgba(255, 255, 255, .0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255, 255, 255, .7) 0%, rgba(255, 255, 255, .5) 50%, rgba(0, 0, 0, 0) 50%);
+    background-repeat: no-repeat;
+    background-size: 200% 100%, auto;
+    background-position: 200% 0, 0 0;
+    box-shadow: rgba(0, 0, 0, .3) 0 2px 5px;
+    transition: all 0.5s;
+}
+
+#new_move:active {
+    top: 1px;
+    box-shadow: none;
+}
+
+#new_move:hover {
+    transition: .5s linear;
+    background-position: -200% 0, 0 0;
+    box-shadow: 1px 1px 3px 1px #55aefb;
+}
+
+#HistoryNumber {
+    font: 15px 'Calibri';
+    color: #120b06;
+    width: auto;
+    margin: auto;
+    height: auto;
+    text-align: center;
+    padding: 0px;
+    margin-bottom: 0px;
+}
+
+#game_tab {
+    letter-spacing: 0;
+    font: 2vmin 'Calibri';
+    box-sizing: inherit;
+    border: 0px solid gray;
+    background-color: white;
+    color: #120b06;
+    height: auto;
+    width: 100%;
+    margin: auto;
+    border-radius: 3px;
+    font-size: 3vmin;
+}
+
+.input_a_b {
+    color: #120b06;
+    margin: 0;
+    margin: 0;
+    width: 90%;
+    height: 100%;
+    font-size: 3vmin;
+    transition: 0.2s;
+}
+
+table {
+    width: 95%;
+}
+
+td {
+    letter-spacing: 0;
+    color: #000000;
+    text-align: center;
+    box-sizing: inherit;
+    border: 1px solid gray;
+    margin: auto;
+    background: #D8E6F3;
+    border-radius: 3px;
+    height: 6vmin;
+}
+
+th,
+td:first-child {
+    background: #55aefb;
+    color: white;
+    padding: 4px;
+    border-radius: 3px;
+}
+
+th,
+td {
+    border-style: solid;
+    border-width: 0 0px 0px 0;
+    border-color: white;
+}
+
+.dif {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 10px;
+    /* demo only */
+}
+
+.dif select {
+    cursor: pointer;
+    background-color: #2980b9;
+    color: #fff;
+    font-size: inherit;
+    font-size: 4vmin;
+    padding: 2vmin;
+    border: 0;
+    margin: 0;
+    text-align: center;
+    border-radius: 3px;
+    text-indent: 0.01px;
+    text-overflow: '';
+    -webkit-appearance: button;
+    /* hide default arrow in chrome OSX */
+}
+
+.dif::before,
+.dif::after {
+    content: "";
+    position: absolute;
+}
+
+.dif select[disabled] {
+    color: rgba(0, 0, 0, .3);
+}
+
+.dif select[disabled]::after {
+    color: rgba(0, 0, 0, .1);
+}
+
+.dif::before {
+    background-color: rgba(0, 0, 0, .15);
+}
+
+.dif::after {
+    color: rgba(0, 0, 0, .4);
+}
+
+.checkbox input[type="checkbox"] {
+    opacity: 0;
+}
+
+.checkbox label {
+    position: relative;
+    display: inline-block;
+    /*16px width of fake checkbox + 6px distance between fake checkbox and text*/
+    padding-left: 7vmin;
+    padding-top: 2.4vmin;
+    padding-bottom: 2.4vmin;
+    padding-right: 3vmin;
+    font-size: 3.3vmin;
+    text-align: center;
+    border: 1px solid rgb(162, 150, 189);
+    border-radius: 12px;
+    background-color: #2980b9;
+    color: white;
+    transition: all 0.3s
+}
+
+.checkbox label:hover {
+    background-color: #458bb9;
+}
+
+.checkbox label::before,
+.checkbox label::after {
+    position: absolute;
+    content: "";
+    /*Needed for the line-height to take effect*/
+    display: inline-block;
+}
+
+
+/*Outer box of the fake checkbox*/
+
+.checkbox label::before {
+    height: 4vmin;
+    width: 4vmin;
+    margin-left: 1vmin;
+    border: 1px solid;
+    left: 0px;
+    border-radius: 4vmin;
+    background-color: rgb(255, 255, 255);
+    /*(24px line-height - 16px height of fake checkbox) / 2 - 1px for the border
+     *to vertically center it.
+     */
+    top: 2.9vmin;
+    left: 1.1vmin;
+}
+
+
+/*Checkmark of the fake checkbox*/
+
+.checkbox label::after {
+    height: 2vmin;
+    width: 2vmin;
+    border-radius: 1.5vmin;
+    background-color: black;
+    top: 2.6vmin;
+    left: 2.7vmin;
+}
+
+
+/*Hide the checkmark by default*/
+
+.checkbox input[type="checkbox"]+label::after {
+    content: none;
+}
+
+
+/*Unhide on the checked state*/
+
+.checkbox input[type="checkbox"]:checked+label::after {
+    content: "";
+}
+
+
+/*Adding focus styles on the outer-box of the fake checkbox*/
+
+.checkbox input[type="checkbox"]:focus+label::before {
+    outline: rgb(59, 153, 252) auto 5px;
+}
+
+@keyframes shake {
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+        -webkit-transform: translate3d(-1px, 0, 0);
+        -ms-transform: translate3d(-1px, 0, 0);
+    }
+    20%,
+    80% {
+        transform: translate3d(2px, 0 0);
+        -webkit-transform: translate3d(2px, 0, 0);
+        -ms-transform: translate3d(2px, 0, 0);
+    }
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+        -webkit-transform: translate3d(-4px, 0, 0);
+        -ms-transform: translate3d(-4px, 0, 0);
+    }
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+        -webkit-transform: translate3d(4px, 0, 0);
+        -ms-transform: translate3d(4px, 0, 0);
+    }
+}
+
+@-webkit-keyframes shake {
+    10%,
+    90% {
+        -webkit-transform: translate3d(-1px, 0, 0);
+    }
+    20%,
+    80% {
+        -webkit-transform: translate3d(2px, 0, 0);
+    }
+    30%,
+    50%,
+    70% {
+        -webkit-transform: translate3d(-4px, 0, 0)t;
+    }
+    40%,
+    60% {
+        -webkit-transform: translate3d(4px, 0, 0);
+    }
+}
+
+#notes {
+    position: fixed;
+    top: 1em;
+    width: 100%;
+    cursor: default;
+    transition: height 0.45s ease-in-out;
+    -webkit-transition: height 0.45s ease-in-out;
+    pointer-events: none;
+    z-index: 1;
+}
+
+#notes .note-item {
+    max-height: 12em;
+    opacity: 1;
+    will-change: opacity, transform;
+    transition: all 0.2s linear;
+    -webkit-transition: all 0.2s linear;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    width: 50vw;
+    -webkit-touch-callout: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    z-index: 2;
+    pointer-events: auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-content: flex-start;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    -moz-align-items: flex-start;
+    align-items: flex-start;
+    -webkit-align-content: flex-start;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+    max-width: 20em;
+    font: inherit;
+    line-height: 1.25em;
+    color: #fff;
+    margin: 0 auto 1em auto;
+    transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    padding: 0.75em 1em;
+}
+
+@media all and (max-width: 30em) {
+    #notes .note-item {
+        width: 75vw;
+        max-width: none;
+    }
+}
+
+#notes .note-item[data-show="false"] {
+    pointer-events: none;
+    opacity: 0 !important;
+    max-height: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+#notes .note-item[data-type="info"] {
+    background-color: rgba(55, 94, 151, 72);
+}
+
+#notes .note-item[data-type="warn"] {
+    background-color: rgba(235, 172, 0, 72);
+    animation: shake 0.9s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    -webkit-animation: shake 0.9s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+#notes .note-item[data-type="error"] {
+    background-color: rgba(251, 101, 66, 72);
+    animation: shake 0.54s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    -webkit-animation: shake 0.54s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+#notes .note-item[data-type="success"] {
+    background-color: rgba(63, 104, 28, 72);
+}
+
+#notes .note-item .note-item-text {
+    flex: auto;
+    -webkit-flex: auto;
+    -moz-flex: auto;
+    -ms-flex: auto;
+    padding-right: 0.5em;
+    max-width: calc(100% - 1.25em);
+    max-width: -webkit-calc(100% - 1.25em);
+}
+
+#notes .note-item .note-item-btn {
+    width: 1.25em;
+    height: 1.25em;
+    cursor: pointer;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiB4bWw6c3BhY2U9InByZXNlcnZlIiBmaWxsPSIjZmZmIj48cGF0aCBkPSJNMTguMyw1LjcxTDE4LjMsNS43MWMtMC4zOS0wLjM5LTEuMDItMC4zOS0xLjQxLDBMMTIsMTAuNTlMNy4xMSw1LjdjLTAuMzktMC4zOS0xLjAyLTAuMzktMS40MSwwbDAsMCBjLTAuMzksMC4zOS0wLjM5LDEuMDIsMCwxLjQxTDEwLjU5LDEyTDUuNywxNi44OWMtMC4zOSwwLjM5LTAuMzksMS4wMiwwLDEuNDFoMGMwLjM5LDAuMzksMS4wMiwwLjM5LDEuNDEsMEwxMiwxMy40MWw0Ljg5LDQuODkgYzAuMzksMC4zOSwxLjAyLDAuMzksMS40MSwwbDAsMGMwLjM5LTAuMzksMC4zOS0xLjAyLDAtMS40MUwxMy40MSwxMmw0Ljg5LTQuODlDMTguNjgsNi43MywxOC42OCw2LjA5LDE4LjMsNS43MXoiLz48L3N2Zz4=) no-repeat 0 0 / contain;
+    transition: opacity 0.2s;
+    -webkit-transition: opacity 0.2s;
+}
+
+#notes .note-item .note-item-btn:hover {
+    opacity: 0.6;
+}
+
+#notes:empty {
+    display: none;
+}
+
+.container {
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 3vmin;
+}
+
+.darker {
+    border-color: #ccc;
+    background-color: #ddd;
+}
+
+.container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.container img {
+    float: left;
+    width: 100%;
+    width: 10vmin;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+.container img.right {
+    float: right;
+    margin-left: 20px;
+    margin-right: 0;
+}
+
+.time-right {
+    float: right;
+    color: #aaa;
+    font-size: 2vmin;
+}
+
+.time-left {
+    float: left;
+    color: #999;
+    font-size: 2vmin;
+}
+
+.container {
+    text-align: left;
+    margin: 10px;
+    width: 75vmin;
+    transition: height 0.45s ease-in-out;
+    opacity: 1;
+    will-change: opacity, transform;
+    transition: all 0.2s linear;
+    -webkit-transition: all 0.2s linear;
+    transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+.container p {
+    margin: 0px;
+}
+
+.container [data-show="false"] {
+    pointer-events: none;
+    opacity: 0 !important;
+    max-height: 0 !important;
+    margin-bottom: 0 !important;
+    animation: opacityObject 2s 1;
+}
+
+#element::-webkit-scrollbar {
+    width: 7px;
+    background-color: #f9f9fd;
+}
+
+#chat {
+    margin: auto;
+    border-radius: 6px;
+    border-color: rgb(0, 0, 0);
+    box-shadow: inset 0 0 2px;
+    overflow-y: scroll;
+    background-color: #ffffff;
+    height: 70vmin;
+    width: 100%;
+}
+
+.ellipsis {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    -webkit-animation: ellipsis 1s infinite;
+    -moz-animation: ellipsis 1s infinite;
+}
+
+@-webkit-keyframes ellipsis {
+    from {
+        width: 2px;
+    }
+    to {
+        width: 12px;
+    }
+}
+
+@-moz-keyframes ellipsis {
+    from {
+        width: 2px;
+    }
+    to {
+        width: 12px;
+    }
+}
+
+.loading:after {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    -moz-animation: ellipsis 2s infinite;
+}
+
+@-moz-keyframes ellipsis {
+    from {
+        width: 2px;
+    }
+    to {
+        width: 15px;
+    }
+}
+
+.msg_button {
+    margin: 10px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    padding: 1.4vmin;
+    font-size: 3vmin;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 4px;
+    border: 0px 0px rgb(0, 0, 0, 0);
+    box-shadow: 1px 1px 1px rgb(61, 61, 61);
+    transition: all 0.2s;
+}
+
+#yes {
+    background-color: green;
+}
+
+#yes:hover {
+    background-color: rgb(38, 161, 38);
+}
+
+#yes:active {
+    background-color: rgb(0, 87, 0);
+}
+
+#no {
+    background-color: red;
+}
+
+#no:hover {
+    background-color: rgb(235, 93, 93);
+}
+
+#no:active {
+    background-color: red;
+}
+
+@keyframes opacityObject {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes fakeDivBlockAn {
+    0% {
+        height: 0px;
+    }
+    100% {
+        height: 62px;
+    }
+}
+
+#fakeDivBlock {
+    height: 62px;
+    animation: fakeDivBlockAn 1s 1;
+}
+
+#anim_nsg_PC {
+    animation: opacityObject 2s 1;
+}

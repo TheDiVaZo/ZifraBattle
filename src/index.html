@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Цифровой баттл</title>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div style="width: 100%;"></div>
+    <p>Цифровой баттл v1.2 (идея Симак Р.С., кодинг Симак Д.Р.)</p>
+    <div id="page">
+        <form id="n_and_non" style="font-family: 'Yusei Magic', sans-serif;">
+            <input id="number" autocomplete="off" type="text" placeholder="Введите свое число" style="width: auto;"></input>
+            <span class="dif big">
+                    <div class="checkbox">
+                        <input type="checkbox" id="no_number">
+                        <label for="no_number">не вводить число</label>
+                    </div>
+                </span>
+        </form>
+        <form>
+            <span class="dif big">  
+                    <select id="dif">
+                        <option selected value="easy">Легкий</option>   
+                        <option value="normal">Средний</option>
+                        <option value="hard">Сложный</option>  
+                    </select> 
+                </span>
+        </form>
+        <form id="n_move">
+            <input id="number_move" autocomplete="off" type="text" placeholder="Введите число" style="width: 100px;">
+            <input id="new_move" type="button" value="Сделать ход">
+        </form>
+        <div id="HistoryNumber">
+            <div>
+                <table id="game_tab">
+                    <tbody>
+                        <tr>
+                            <th id="UserDigit" title="Сбросить счет игры и начать заново" class="count">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="3vmin" height="3vmin" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M86,21.5c-35.56244,0 -64.5,28.93756 -64.5,64.5c0,35.56244 28.93756,64.5 64.5,64.5c35.56244,0 64.5,-28.93756 64.5,-64.5h-10.75c0,29.75456 -23.99544,53.75 -53.75,53.75c-29.75456,0 -53.75,-23.99544 -53.75,-53.75c0,-29.75456 23.99544,-53.75 53.75,-53.75c16.24439,0 30.67816,7.2563 40.52246,18.60254l-13.64746,13.64746h37.625v-37.625l-16.37696,16.37695c-11.82171,-13.29187 -28.97592,-21.75195 -48.12304,-21.75195z"></path></g></g></svg>
+
+                            </th>
+                            <th colspan="3" class="count">Твои очки:
+                                <div id="u_count">0</div>
+                            </th>
+                            <th colspan="3" class="count">Очки компьютера:
+                                <div id="c_count">0</div>
+                            </th>
+                        </tr>
+
+                        <tr>
+                            <th>Ход</th>
+                            <th>Число</th>
+                            <th>кол-во совпавших чисел</th>
+                            <th>из них на своем месте</th>
+                            <th>Число</th>
+                            <th>кол-во совпавших чисел</th>
+                            <th>из них на своем месте</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <input id="send" type="button" value="Отправить" style="float: right; visibility: hidden;">
+            <div id="fkTest">
+                <div id="fakeDivBlock">
+
+                </div>
+            </div>
+            <div id="chat">
+                <div id="msg"></div>
+            </div>
+            <div class="loading" style="color: #aaa;">Компьютер печатает:<span class="ellipsis">...</span></div>
+        </div>
+        <br>
+
+    </div>
+    <div id="notes">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+    <script src="game.js"></script>
+    <script src="util/notification.js"></script>
+    <script src="education.js"></script>
+    <script src="gameplay.js"></script>
+</body>
+
+</html>
