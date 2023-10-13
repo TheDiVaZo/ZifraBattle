@@ -2,6 +2,8 @@
 //Кол-во совпавших чисел (a)
 //Из них на своем месте (b)
 import avatar from './img/computer.jpg'
+import './css/index.css'
+import {postData} from "./js/util.js";
 
 !async function () {
     await chat_send(`Привет! Ты попал в игру "Цифровой баттл"`, 2000)
@@ -523,6 +525,9 @@ function returnGame() {
     lvl = 1
     numberIsPC = generate_number()
     numberIsUs = undefined
+    postData("url", {
+        gameHash:
+    })
     document.querySelectorAll('.tb').forEach(e => e.parentNode.removeChild(e));
     swal(`Следующая партия!`)
 }
