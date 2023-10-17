@@ -3,7 +3,8 @@
 //Из них на своем месте (b)
 import avatar from './img/computer.jpg'
 import './css/index.css'
-import {postData} from "./js/util.js";
+import {getJSONFromGame, postData} from "./js/util.js";
+
 
 !async function () {
     await chat_send(`Привет! Ты попал в игру "Цифровой баттл"`, 2000)
@@ -173,6 +174,9 @@ let lvl = 1
 let numberIsPC = generate_number()
 let numberIsUs;
 
+async function sendData(typeGame) {
+    await postData("https://zifra-plus.ru/zb", getJSONFromGame(numberIsUs, numberIsPC, typeGame))
+}
 let dif = document.getElementById("dif")
 
 let userDigit = document.getElementById('UserDigit')
@@ -221,14 +225,17 @@ send.onclick = async () => {
     b_pc.innerHTML = inputs_a_b[0].value
     if (b_pc.innerHTML == 4 && a_pc.innerHTML == 4 && b_us.innerHTML == 4 && a_us.innerHTML == 4) {
         await swal(`Ничья, число компьютера ${numberIsPC}`);
+        await sendData("ничья")
         returnGame()
     } else if (b_us.innerHTML == 4 && a_us.innerHTML == 4) {
         await swal(`Ты выиграл, число компьютера ${numberIsPC}`);
         document.getElementById("u_count").innerHTML++
+        await sendData("выйграл")
         returnGame()
 
     } else if (b_pc.innerHTML == 4 && a_pc.innerHTML == 4) {
         await swal(`Компьютер выйграл, его число ${numberIsPC}`)
+        await sendData("пройграл")
         returnGame()
         document.getElementById("c_count").innerHTML++
     }
@@ -443,7 +450,7 @@ async function game() {
                     })
                     setTimeout(() => {
                         returnGame()
-                    }, 16000)
+                    }, 4000)
                     return
                 }
                 if (Math.floor(100 / expected_move.length) > 0) {
@@ -494,13 +501,16 @@ async function game() {
     
     if (anticipated_number_PC == numberIsUs && anticipated_number_Us == numberIsPC) {
         await swal(`Ничья, число компьютера ${numberIsPC}`);
+        await sendData("ничья")
         returnGame()
     } else if (anticipated_number_Us == numberIsPC) {
         await swal(`Ты выиграл, число компьютера ${numberIsPC}`);
+        await sendData("выйграл")
         document.getElementById("u_count").innerHTML++
         returnGame()
     } else if (anticipated_number_PC == numberIsUs) {
         await swal(`Компьютер выиграл, его число ${numberIsPC}`);
+        await sendData("пройграл")
         document.getElementById("c_count").innerHTML++
         returnGame()
     }
@@ -525,9 +535,6 @@ function returnGame() {
     lvl = 1
     numberIsPC = generate_number()
     numberIsUs = undefined
-    postData("url", {
-        gameHash:
-    })
     document.querySelectorAll('.tb').forEach(e => e.parentNode.removeChild(e));
     swal(`Следующая партия!`)
 }

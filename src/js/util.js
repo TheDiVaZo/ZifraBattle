@@ -12,13 +12,25 @@ export const postData = async (url = '', data = {}) => {
     });
     return response.json();
 }
-export const getResultFromGame = () => {
-    let result = [];
+export const getJSONFromGame = (numberIsUser, numberIsPC, typeGame) => {
+    let game = {
+        version: "2.0.0",
+        user_begin_number: numberIsUser,
+        computer_begin_number: numberIsPC,
+        typeGame: typeGame,
+        movies: []
+    };
     document.querySelectorAll(".tb").forEach((elem)=>{
-        let elements = elem.getElementsByTagName("tr")[0];
-        let number = parseInt(elem.getElementsByTagName("tr")[0].children[0].innerHTML);
-        // let object = {
-        //     us_numm = elements.
-        // }
+        let elements = elem.getElementsByTagName("tr")[0].children;
+        let move = {
+            user_number: parseInt(elements[1].innerHTML),
+            user_number_matched: parseInt(elements[2].innerHTML),
+            user_number_place: parseInt(elements[3].innerHTML),
+            computer_number: parseInt(elements[4].innerHTML),
+            computer_number_matched: parseInt(elements[5].innerHTML),
+            computer_number_place: parseInt(elements[6].innerHTML)
+        }
+        game.movies.push(move)
     })
+    return game;
 }
